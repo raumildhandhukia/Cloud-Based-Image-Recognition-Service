@@ -11,7 +11,7 @@ args = parser.parse_args()
 
 def send_one_request(url, image_path):
     # Define http payload, "myfile" is the key of the http payload
-    file = {"myfile": open(image_path,'rb')} 
+    file = {"myfile": open(image_path,'rb')}
     r = requests.post(url, files=file)
     # Print error message if failed
     if r.status_code != 200:
@@ -28,5 +28,5 @@ image_folder = args.image_folder
 for i, name in enumerate(os.listdir(image_folder)):
     if i == num_request:
         break
-    image_path = image_folder +'/' + name
+    image_path = image_folder + name
     send_one_request(url, image_path)

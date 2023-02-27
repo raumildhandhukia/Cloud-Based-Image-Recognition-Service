@@ -21,7 +21,7 @@ request_queue = sqs_creator('request-queue')
 response_queue = sqs_creator('response-queue')
 
 
-async def get_responses(key):
+async def fetch_responses(key):
     while True:
         time.sleep(0.5)
         try:
@@ -30,8 +30,8 @@ async def get_responses(key):
                 for message in response['Messages']:
                     msg = json.loads(message['Body'])
                     OUTPUT[msg['Key']] = msg['Result']
-                    await message_delete(response_queue, message['ReceiptHandle'])
-            res = check_responses(key)
+                    message_delete(response_queue, message['ReceiptHandle'])
+            res = catch_response(key)
             if res:
                 return res
 
@@ -39,7 +39,7 @@ async def get_responses(key):
             print(e)
 
 
-def check_responses(key):
+def catch_response(key):
     if key in OUTPUT:
         res = key + ' ' + OUTPUT[key]
         del OUTPUT[key]
@@ -47,12 +47,12 @@ def check_responses(key):
 
 
 @app.route('/', methods=['POST'])
-def upload_file():
+def process():
     key = request.files['myfile'].filename
     file_upload(BUCKET, request.files['myfile'], key)
     message_send(request_queue,
                  json.dumps({'Bucket': BUCKET, 'Key': key}))
-    res = asyncio.run(get_responses(key))
+    res = asyncio.run(fetch_responses(key))
     return res
 
 

@@ -13,9 +13,18 @@ def bucket_creator(name):
         print('Exception: ', e)
 
 
+def download_file(name, key, filepath):
+    try:
+        res = BClient.download_file(name, key, filepath)
+        return res
+    except Exception as e:
+        print(e)
+
+
 def file_upload(bucket, file, file_path):
     try:
         res = BClient.put_object(Bucket=bucket, Key=file_path, Body=file)
         return res
     except Exception as e:
         print('Exception: ', e)
+
