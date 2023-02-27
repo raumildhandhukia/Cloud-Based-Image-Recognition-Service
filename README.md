@@ -136,7 +136,18 @@ sudo systemctl start myservice.service
 
 - EC2 App-Tier: cc-image-processing-app-tier
 
-- AMI ID: ami-02962ef374eadec5a
+## Help
+
+**Web-Tier contains** `server.py, resources/s3.py, resources/sqs.py, resources/__init__.py`
+
+
+**App-Tier contains** `app/app.py, app/image_classification.py, app/imagenet-labels.json, app/__init__.py, resources/s3.py, resources/sqs.py, resources/__init__.py`
+
+**resouces** folder is shared by Web-Tier and App-Tier. It contains basic operations related to `S3 and SQS`
+
+`requirements.txt` is common for Web-Tier and App-Tier.
+
+`workload_generator.py` and `multithread_workload_generator.py` are used to test the services.
 
 
 
