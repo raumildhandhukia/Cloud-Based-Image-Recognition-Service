@@ -18,7 +18,7 @@ This is an elastic application that can automatically scale out and in on-demand
 
 - Set up the AWS. Created users and roles with appropriate securities. Created AMI and launch templates. Created Alarms for cloudwatch and integrated it with request-queue.
 
-## Chaitya Dharmeshkumar Dave
+## Chaitya Dharmeshbhai Dave
 
 - Developed SQS resources to utilize boto3 and co-operated in developing algorithm of the App-Tier. Handled different test cases for the web-tier, app-tier & resources, and managed the exceptions.
 
