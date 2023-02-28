@@ -4,30 +4,6 @@ Our project is to develop a cloud-based image recognition service that leverages
 
 This is an elastic application that can automatically scale out and in on-demand by leveraging the Infrastructure-as-a-Service (IaaS) resources from Amazon Web Services (AWS). 
 
-# Authors
-
-## Raumil Bharatbhai Dhandhukia
-
-- Developed Web-Tier source code which enables clients to upload the file to the web server. Created functionality that sends the messeges to request-queue and fetches appropriate image recognition results from response-queue.
-
-- Set up the Web-Tier EC2 Instance and configured Web-Tier instance with nginx to forwarded the traffic. Wrote a script on App-Tier to automatically start the image recognition service as soon as server is started or restarted.
-
-## Parv Jetalkumar Dave
-
-- Developed S3 resources to utilize the boto3 library easily. Developed App-Tier source code to retrieve the messeges from request-queue and perform the image recognition. 
-
-- Set up the AWS. Created users and roles with appropriate securities. Created AMI and launch templates. Created Alarms for cloudwatch and integrated it with request-queue.
-
-## Chaitya Dharmeshbhai Dave
-
-- Developed SQS resources to utilize boto3 and co-operated in developing algorithm of the App-Tier. Handled different test cases for the web-tier, app-tier & resources, and managed the exceptions.
-
-- Created Auto Scaling Group to Scale In/Out the App-Tier based upon cloudwatch's metrix.
-
-
-
-
-
 ## Installation
 
 Install Unzip (If you do not have it installed)
