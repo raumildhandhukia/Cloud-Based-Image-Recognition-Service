@@ -1,5 +1,5 @@
 
-#IaaS - Cloud-Based Image Recognition Service
+##IaaS - Cloud-Based Image Recognition Service
 Our project is to develop a cloud-based image recognition service that leverages deep learning to classify and identify images provided by users. The service will be accessible to users via a web interface, and it will utilize cloud resources to perform the deep learning computations needed for image recognition.
 
 This is an elastic application that can automatically scale out and in on-demand by leveraging the Infrastructure-as-a-Service (IaaS) resources from Amazon Web Services (AWS). 
